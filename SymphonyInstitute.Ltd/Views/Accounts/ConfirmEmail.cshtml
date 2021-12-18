@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class=" container text-center">
+
+    @if (@ViewBag.IsSuccess == true)
+    {
+
+        <h2 class="text-success p-3">Thank you For Verifying Your Email Address </h2>
+
+        <h4 class="p-3"> please visit the Home Page or<a asp-area="" asp-controller="Home" asp-action="Index"> Click Here</a></h4>
+
+
+    }
+
+
+
+    else
+    {
+        <h4>Ooops Something went Wrong </h4>
+
+    }
+
+
+</div>
+
+
