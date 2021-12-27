@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SymphonyInstitute.Ltd.Models
 {
+    
     public class ApplicationUser : IdentityUser
     {
 

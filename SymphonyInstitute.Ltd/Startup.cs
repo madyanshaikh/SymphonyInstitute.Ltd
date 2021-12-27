@@ -11,6 +11,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SymphonyInstitute.Ltd.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using SymphonyInstitute.Ltd.Common;
 
 namespace SymphonyInstitute.Ltd
 {
@@ -26,19 +31,28 @@ namespace SymphonyInstitute.Ltd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddAuthorization();
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("ElevatedRights", policy =>
+            //      policy.RequireRole("Administrator", "PowerUser", "BackupAdministrator").RequireAuthenticatedUser());
+            //};
             services.AddMvc();
-            services.AddDbContext<StudentDbContext>(x => x.UseSqlServer("Server=.;Database=SymphonyInstitute.Ltd;Integrated Security=true;"));
+            //services.AddDbContext<StudentDbContext>(x =>    x.UseSqlServer("Server=.;Database=SymphonyInstitute.Ltd;Integrated Security=true;"));
+            services.AddDbContext<StudentDbContext>(x => x.
+            UseSqlServer(Global.ConnectionString = Configuration.GetConnectionString("SymphonyInstitute.Ltd")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StudentDbContext>().AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(a => a.LoginPath = "/accounts/login");
-            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>,ApplicationUserClaimsPricipalFactory>();
+            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPricipalFactory>();
 
             services.Configure<IdentityOptions>(x =>
             {
                 x.Password.RequireDigit = false;
 
-                x.SignIn.RequireConfirmedEmail = true;
-                x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                x.Lockout.MaxFailedAccessAttempts = 3;
+                //x.SignIn.RequireConfirmedEmail = true;
+                //x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                //x.Lockout.MaxFailedAccessAttempts = 3;
             });
 
         }

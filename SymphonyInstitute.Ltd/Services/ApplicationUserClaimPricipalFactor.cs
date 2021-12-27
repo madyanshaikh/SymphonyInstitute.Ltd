@@ -25,6 +25,7 @@ namespace SymphonyInstitute.Ltd.Services
             var identity = await base.GenerateClaimsAsync(user);
             identity.AddClaim(new Claim("UserFirstName", _user.Fname ?? ""));
             identity.AddClaim(new Claim("UserLastName", _user.Lname ?? ""));
+            identity.AddClaim(new Claim("UserId", _user.AspNetUsersId ?? ""));
             return identity;
         }
     }

@@ -11,6 +11,9 @@ namespace SymphonyInstitute.Ltd.Models
 {
     public class StudentDbContext:IdentityDbContext<ApplicationUser>
     {
+        public StudentDbContext()
+        {
+        }
 
         public StudentDbContext(DbContextOptions<StudentDbContext>option):base (option)
         {
@@ -31,28 +34,21 @@ namespace SymphonyInstitute.Ltd.Models
         public virtual DbSet<Student> Student { get; set; }
         public DbSet<SymphonyInstitute.Ltd.Models.Login> Login { get; set; }
 
+        public DbSet<Voucher> voucher { get; set; }
+        //public DbSet<Rollnumber>Rollnumbers { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder) {
-        //    base.OnModelCreating(modelBuilder);
 
-        //    modelBuilder.Entity<ApplicationUser>(entity =>
-        //    {
-        //        entity.HasIndex(e => e.NormalizedEmail)
-        //            .HasName("EmailIndex");
 
-        //        entity.HasIndex(e => e.NormalizedUserName)
-        //            .HasName("UserNameIndex")
-        //            .IsUnique()
-        //            .HasFilter("([NormalizedUserName] IS NOT NULL)");
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 
-        //        entity.Property(e => e.Email).HasMaxLength(256);
-
-        //        entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
-
-        //        entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
-
-        //        entity.Property(e => e.UserName).HasMaxLength(256);
-        //    });
-        //}
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder
+                .Entity<Voucher>().HasNoKey();
+            modelBuilder
+               .Entity<Rollnumber>().HasNoKey();
+        }
     }
+
+    
 }

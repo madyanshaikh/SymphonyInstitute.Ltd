@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SymphonyInstitute.Ltd.Models.Voucher>
+
+@{
+    ViewData["Title"] = "Getvoucher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoursesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rollno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amountdue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LabSession)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObtMarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMarks)
+            </th>
+
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoursesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rollno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amountdue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LabSession)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ObtMarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMarks)
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

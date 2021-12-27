@@ -1,12 +1,11 @@
 ﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SymphonyInstitute.Ltd</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -20,13 +19,44 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-
-                        @if (_signInManager.IsSignedIn(User))
+                        @if (_signInManager.IsSignedIn(User) && User.IsInRole("SuperAdmin"))
                         {
                             <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="Administrative" asp-action="GetUsers">User Lists</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="CoursesEnrolleds" asp-action="Index">Student Enrolled </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="Accounts" asp-action="UserRole">Create Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="Administrative" asp-action="Rolelist">Roles lists</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="Administrative" asp-action="CreateRole">Create Role</a>
+                            </li>
+                            <li class="nav-item ml-auto">
                                 <a class="nav-link text-danger" asp-area="" asp-controller="Accounts" asp-action="Logout">Logout</a>
                             </li>
                         }
+
+                        else if (_signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-danger ml-auto" asp-area="" asp-controller="Accounts" asp-action="Logout">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="Courses" asp-action="CoursesCart">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-controller="Courses" asp-action="RollNoView">Voucher</a>
+                            </li>
+
+
+
+                        }
+
                         else
                         {
                             <li class="nav-item">
@@ -48,12 +78,15 @@
 
 
 
+
+
+
                     </ul>
                     @if (_signInManager.IsSignedIn(User))
                     {
-                <h3 class="text-info">
-                    @User.FindFirst("UserFirstName").Value<span> </span>@User.FindFirst("UserLastName").Value
-                </h3>
+                        <h3 class="text-info">
+                            @User.FindFirst("UserFirstName").Value @User.FindFirst("UserLastName").Value
+                        </h3>
                     }
                 </div>
             </div>
@@ -72,7 +105,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

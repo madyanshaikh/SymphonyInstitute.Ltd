@@ -24,11 +24,13 @@ namespace SymphonyInstitute.Ltd.Controllers
         private readonly ILogger<AccountsController> logger;
         private readonly IWebHostEnvironment env;
         private readonly IConfiguration confg;
+        private readonly RoleManager<IdentityRole> roleManager;
 
         public AccountsController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             StudentDbContext _context, ILogger<AccountsController> logger,
-            IWebHostEnvironment env, IConfiguration confg)
+            IWebHostEnvironment env, IConfiguration confg,
+            RoleManager<IdentityRole> roleManager)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
@@ -36,9 +38,14 @@ namespace SymphonyInstitute.Ltd.Controllers
             this.logger = logger;
             this.env = env;
             this.confg = confg;
+            this.roleManager = roleManager;
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Checj()
         {
             return View();
         }
@@ -54,15 +61,23 @@ namespace SymphonyInstitute.Ltd.Controllers
             if (ModelState.IsValid)
             {
 
+
+
+
                 var user = new ApplicationUser()
                 {
+
                     UserName = student.Email,
-                    Email = student.Email,
+                    Email = student.Email
+
                 };
 
+                //context.Religion.Add(religionuser);
+                //context.Qualification.Add(qualificationUser);
                 var result = await this._userManager.CreateAsync(user, student.Password);
 
                 string ID = user.Id;
+
 
                 if (!result.Succeeded)
                 {
@@ -82,11 +97,14 @@ namespace SymphonyInstitute.Ltd.Controllers
 
                     if (!string.IsNullOrEmpty(ID))
                     {
+
+
                         student.AspNetUsersId = ID;
+                        //student.Qualificationid = qd;
+                        student.Religionid = student.religion;
+                        student.Qualificationid = student.Qualifications;
                         context.Student.Add(student);
                         context.SaveChanges();
-
-
                     }
                     if (!string.IsNullOrEmpty(token))
                     {
@@ -131,6 +149,10 @@ namespace SymphonyInstitute.Ltd.Controllers
             else if (result.IsLockedOut)
             {
                 ModelState.AddModelError("", "Your account has been locked");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid Username or Password ");
             }
 
             return View();
@@ -206,6 +228,34 @@ namespace SymphonyInstitute.Ltd.Controllers
 
             return View();
         }
+        public IActionResult UserRole()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UserRole(UserRoles userRole)
+        {
+            var user = context.ApplicationUsers.FirstOrDefault(x => x.Id == userRole.UserId);
+
+            //IdentityRole identityRole =new IdentityRole()
+            //{
+            //    Id = userRole.RoleId,
+            var result = await _userManager.AddToRoleAsync(user, "SuperAdmin");
+
+            if (result.Succeeded)
+            {
+
+                ModelState.AddModelError("", "Added Succesfully");
+                //ViewBag.Error = "Successfully Role Added";
+                //return View("Registered");
+            }
+
+
+            return View("UserRole");
+        }
+
+      
+     
     }
 
 

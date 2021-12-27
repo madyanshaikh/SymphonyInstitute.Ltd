@@ -1,0 +1,52 @@
+﻿@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@if (Model.Any())
+{
+    <a class="btn btn-primary" asp-action="CreateRole" Asp-controller="Administrative">
+        Create Role
+    </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                @*<th scope="col">First</th>*@
+                <th scope="col">Role</th>
+                <th scope="col">Normalized</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                @foreach (var role in Model)
+                {
+            <tr>
+                <th scope="row">@role.Id</th>
+                <td>@role.Name</td>
+                <td>@role.NormalizedName</td>
+                <td>
+                    <button class="btn btn-outline-dark">Update</button>
+                    <button class="btn btn-outline-danger ml-3">Delete</button>
+                </td>    
+                
+            </tr>
+
+                }
+            
+            </tbody>
+    </table>
+
+}
+
+else
+{ <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title text-success">No Roles Added Yet</h5>
+
+            <h6 class="card-text"> Click Below to Add </h6>
+            <a asp-action="CreateRole" Asp-controller="Administrative">
+                Create Role
+            </a>
+        </div>
+    </div>
+}
