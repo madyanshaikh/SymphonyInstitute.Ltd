@@ -20,7 +20,8 @@ namespace SymphonyInstitute.Ltd.Models
 
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        //public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public  DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<CoursesEnrolled> CoursesEnrolled { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
@@ -35,6 +36,7 @@ namespace SymphonyInstitute.Ltd.Models
         public DbSet<SymphonyInstitute.Ltd.Models.Login> Login { get; set; }
 
         public DbSet<Voucher> voucher { get; set; }
+        public DbSet<ViewStudentDetails>ViewStudentDetails { get; set; }
         //public DbSet<Rollnumber>Rollnumbers { get; set; }
 
 
@@ -43,11 +45,18 @@ namespace SymphonyInstitute.Ltd.Models
 
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder
                 .Entity<Voucher>().HasNoKey();
             modelBuilder
                .Entity<Rollnumber>().HasNoKey();
+            modelBuilder.Entity<ViewStudentDetails>().HasNoKey();
+            
         }
+        //public DbSet<Rollnumber>Rollnumbers { get; set; }
+
+
+
     }
 
     

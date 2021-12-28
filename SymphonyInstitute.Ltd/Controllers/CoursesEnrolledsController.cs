@@ -92,6 +92,7 @@ namespace SymphonyInstitute.Ltd.Controllers
             {
                 return NotFound();
             }
+
             ViewData["CoursesId"] = new SelectList(_context.Courses, "Id", "Id", coursesEnrolled.CoursesId);
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Id", coursesEnrolled.EmployeeId);
             ViewData["PaymentId"] = new SelectList(_context.Payment, "Id", "Id", coursesEnrolled.PaymentId);
@@ -102,6 +103,7 @@ namespace SymphonyInstitute.Ltd.Controllers
         // POST: CoursesEnrolleds/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,EmployeeId,CoursesId,StudentId,PaymentId,Labsession,RollNo")] CoursesEnrolled coursesEnrolled)
@@ -131,6 +133,7 @@ namespace SymphonyInstitute.Ltd.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["CoursesId"] = new SelectList(_context.Courses, "Id", "Id", coursesEnrolled.CoursesId);
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Id", coursesEnrolled.EmployeeId);
             ViewData["PaymentId"] = new SelectList(_context.Payment, "Id", "Id", coursesEnrolled.PaymentId);

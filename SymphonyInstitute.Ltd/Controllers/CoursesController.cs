@@ -62,21 +62,14 @@ namespace SymphonyInstitute.Ltd.Controllers
         {
             return View();
         }
-           [HttpGet]
+        [HttpGet]
         public IActionResult Getvoucher(Rollnumber roll)
         {
 
-
-            //var userid = User.Claims.FirstOrDefault(x=>x.Type.Equals("UserId")).Value;
-            //var student = context.Student.FirstOrDefault(x => x.AspNetUsersId.Equals(userid));
-            //var courseEnrolled = context.CoursesEnrolled.FirstOrDefault(x => x.RollNo.Equals(roll.Search));
-
-            //var roll = context.CoursesEnrolled.FirstOrDefault(x => x.RollNo.Equals(rollnumber.Search) );
-            //var search = context.Rollnumbers.FirstOrDefault(x => x.Search.Equals(courseEnrolled.RollNo));
             var v = context.voucher.FromSqlRaw<Voucher>($"select * from View_Voucher where Rollno = '{roll.Search}'").ToList();
-            
 
-            if (v!= null)
+
+            if (v != null)
             {
 
 
@@ -98,7 +91,7 @@ namespace SymphonyInstitute.Ltd.Controllers
 
         }
 
-        
+
 
     }
 }

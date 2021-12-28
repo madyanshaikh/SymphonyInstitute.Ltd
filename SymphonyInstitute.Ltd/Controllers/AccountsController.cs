@@ -60,24 +60,16 @@ namespace SymphonyInstitute.Ltd.Controllers
 
             if (ModelState.IsValid)
             {
-
-
-
-
                 var user = new ApplicationUser()
                 {
 
                     UserName = student.Email,
                     Email = student.Email
-
                 };
 
-                //context.Religion.Add(religionuser);
-                //context.Qualification.Add(qualificationUser);
                 var result = await this._userManager.CreateAsync(user, student.Password);
 
                 string ID = user.Id;
-
 
                 if (!result.Succeeded)
                 {
@@ -91,16 +83,12 @@ namespace SymphonyInstitute.Ltd.Controllers
                 else
                 {
                     var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = token }, Request.Scheme);
-                    //logger.Log(LogLevel.Warning, confirmationLink);
-
 
                     if (!string.IsNullOrEmpty(ID))
                     {
 
 
                         student.AspNetUsersId = ID;
-                        //student.Qualificationid = qd;
                         student.Religionid = student.religion;
                         student.Qualificationid = student.Qualifications;
                         context.Student.Add(student);
@@ -115,17 +103,12 @@ namespace SymphonyInstitute.Ltd.Controllers
 
                         return View("Registered", new Student());
                     }
-
-
-
                 }
-
-
             }
-
 
             return View();
         }
+
         public IActionResult Login()
         {
             return View();
@@ -254,8 +237,8 @@ namespace SymphonyInstitute.Ltd.Controllers
             return View("UserRole");
         }
 
-      
-     
+
+
     }
 
 

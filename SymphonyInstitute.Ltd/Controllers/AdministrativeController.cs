@@ -68,6 +68,13 @@ namespace SymphonyInstitute.Ltd.Controllers
             return View(getuser);
         }
 
+        [HttpGet]
+        public IActionResult GetEnrolledDetails()
+        {
+            var getEnrolledDetails = context.ViewStudentDetails.FromSqlRaw<ViewStudentDetails>("select * from View_StudentDetails").ToList();
+
+            return View(getEnrolledDetails);
+        }
      
     }
 }

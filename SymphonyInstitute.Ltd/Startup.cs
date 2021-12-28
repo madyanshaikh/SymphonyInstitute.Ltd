@@ -33,13 +33,10 @@ namespace SymphonyInstitute.Ltd
         {
 
             services.AddAuthorization();
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("ElevatedRights", policy =>
-            //      policy.RequireRole("Administrator", "PowerUser", "BackupAdministrator").RequireAuthenticatedUser());
-            //};
+
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc();
-            //services.AddDbContext<StudentDbContext>(x =>    x.UseSqlServer("Server=.;Database=SymphonyInstitute.Ltd;Integrated Security=true;"));
+            //services.adddbcontext<studentdbcontext>(x =>    x.usesqlserver("server=.;database=symphonyinstitute.ltd;integrated security=true;"));
             services.AddDbContext<StudentDbContext>(x => x.
             UseSqlServer(Global.ConnectionString = Configuration.GetConnectionString("SymphonyInstitute.Ltd")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StudentDbContext>().AddDefaultTokenProviders();
@@ -49,10 +46,9 @@ namespace SymphonyInstitute.Ltd
             services.Configure<IdentityOptions>(x =>
             {
                 x.Password.RequireDigit = false;
-
-                //x.SignIn.RequireConfirmedEmail = true;
-                //x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                //x.Lockout.MaxFailedAccessAttempts = 3;
+                x.SignIn.RequireConfirmedEmail = true;
+                x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                x.Lockout.MaxFailedAccessAttempts = 3;
             });
 
         }

@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SymphonyInstitute.Ltd.Models
 {
+    
     public partial class AspNetUsers
     {
        

@@ -30,7 +30,7 @@ namespace SymphonyInstitute.Ltd.Models
         public int? Qualificationid { get; set; }
         public int? Religionid { get; set; }
         public string AspNetUsersId { get; set; }
-
+        [NotMapped]
         public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual Qualification Qualification { get; set; }
         public virtual Religion Religion { get; set; }
