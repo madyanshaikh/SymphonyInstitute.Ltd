@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,8 @@ namespace SymphonyInstitute.Ltd.Models
         public string NormalizedUserName { get; set; }
         public string Email { get; set; }
         public string NormalizedEmail { get; set; }
+       
+        [DisplayName("Confirm")]
         public bool EmailConfirmed { get; set; }
         public string PasswordHash { get; set; }
         public string SecurityStamp { get; set; }
@@ -28,6 +31,8 @@ namespace SymphonyInstitute.Ltd.Models
         public bool TwoFactorEnabled { get; set; }
         public DateTimeOffset? LockoutEnd { get; set; }
         public bool LockoutEnabled { get; set; }
+        
+        [Display(Name = "AccessCount")]
         public int AccessFailedCount { get; set; }
 
     }

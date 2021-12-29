@@ -45,10 +45,10 @@ namespace SymphonyInstitute.Ltd
 
             services.Configure<IdentityOptions>(x =>
             {
-                x.Password.RequireDigit = false;
-                x.SignIn.RequireConfirmedEmail = true;
-                x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                x.Lockout.MaxFailedAccessAttempts = 3;
+                //x.Password.RequireDigit = false;
+                //x.SignIn.RequireConfirmedEmail = true;
+                //x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                //x.Lockout.MaxFailedAccessAttempts = 3;
             });
 
         }

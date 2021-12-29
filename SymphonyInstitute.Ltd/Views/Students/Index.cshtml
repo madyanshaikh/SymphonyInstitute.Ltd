@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table" id="myTable">
+<table class="table table-responsive" id="myTable">
     <thead>
         <tr>
             <th>
@@ -22,18 +22,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.Nic)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Dob)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Age)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GuradianNumber)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.RequestConfirm)
             </th>
@@ -55,31 +51,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Nic)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Dob)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
+           
+          
             <td>
-                @Html.DisplayFor(modelItem => item.GuradianNumber)
-            </td>
-            @*@if (item.RequestConfirm == true)
-        {
-            <td style="background-color:mediumaquamarine">
-                @Html.DisplayFor(modelItem => item.RequestConfirm)
-            </td>
-        }
-        else
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestConfirm)
-            </td>
-        }*@
-            <td style="background-color:mediumaquamarine">
                 @Html.DisplayFor(modelItem => item.RequestConfirm)
             </td>
 
@@ -87,9 +68,9 @@
                 @Html.DisplayFor(modelItem => item.MobileNumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

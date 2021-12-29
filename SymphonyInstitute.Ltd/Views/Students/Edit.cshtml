@@ -51,10 +51,11 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label" asp-for="RequestConfirm"></label>
-                <select  style="width:150px">
-                    <option value="true">Yes</option>
-                    <option value="false" >No</option>
-                </select> @Html.DisplayNameFor(model => model.RequestConfirm)
+                <select  class="form-control form-select" asp-for="RequestConfirm" style="width:150px">
+                <option value="">...</option>
+                    <option class="text-success" value="True">Yes</option>
+                    <option class="text-danger" value="False" >No</option>
+                </select>
 
             </div>
 
