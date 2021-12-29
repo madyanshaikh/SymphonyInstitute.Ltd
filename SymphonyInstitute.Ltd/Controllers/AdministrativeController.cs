@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SymphonyInstitute.Ltd.Controllers
 {
-    //[Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin")]
     public class AdministrativeController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

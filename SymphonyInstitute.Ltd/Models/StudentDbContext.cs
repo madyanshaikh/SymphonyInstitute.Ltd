@@ -21,7 +21,7 @@ namespace SymphonyInstitute.Ltd.Models
         }
 
         //public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public  DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<CoursesEnrolled> CoursesEnrolled { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }

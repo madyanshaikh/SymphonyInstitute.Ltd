@@ -26,6 +26,7 @@ namespace SymphonyInstitute.Ltd.Models
         public int Age { get; set; }
         public bool Gender { get; set; }
         public string GuradianNumber { get; set; }
+        public bool? RequestConfirm { get; set; }
         public string MobileNumber { get; set; }
         public int? Qualificationid { get; set; }
         public int? Religionid { get; set; }

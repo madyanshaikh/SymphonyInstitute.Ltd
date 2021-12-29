@@ -36,9 +36,9 @@ namespace SymphonyInstitute.Ltd
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc();
-            //services.adddbcontext<studentdbcontext>(x =>    x.usesqlserver("server=.;database=symphonyinstitute.ltd;integrated security=true;"));
-            services.AddDbContext<StudentDbContext>(x => x.
-            UseSqlServer(Global.ConnectionString = Configuration.GetConnectionString("SymphonyInstitute.Ltd")));
+            services.AddDbContext<StudentDbContext>(x => x.UseSqlServer("server=.;database=symphonyinstitute.ltd;integrated security=true;"));
+            //services.AddDbContext<StudentDbContext>(x => x.
+            //UseSqlServer(Global.ConnectionString = Configuration.GetConnectionString("SymphonyInstitute.Ltd")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StudentDbContext>().AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(a => a.LoginPath = "/accounts/login");
             services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPricipalFactory>();
