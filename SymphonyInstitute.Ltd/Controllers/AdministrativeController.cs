@@ -69,8 +69,9 @@ namespace SymphonyInstitute.Ltd.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles ="SuperAdmin")]
         public IActionResult GetEnrolledDetails()
-        {
+        {   
             var getEnrolledDetails = context.ViewStudentDetails.FromSqlRaw<ViewStudentDetails>("select * from View_StudentDetails").ToList();
 
             return View(getEnrolledDetails);

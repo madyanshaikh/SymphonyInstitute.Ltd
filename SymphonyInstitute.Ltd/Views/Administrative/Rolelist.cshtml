@@ -1,11 +1,16 @@
 ﻿@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
 
+@{ 
+    Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+}
+
 @if (Model.Any())
 {
-    <a class="btn btn-primary" asp-action="CreateRole" Asp-controller="Administrative">
-        Create Role
-    </a>
+<a class="pt-30 pb-5" asp-action="CreateRole" Asp-controller="Administrative">
+    <button class="btn btn-outline-danger">Create Roles</button>
+
+</a>
     <table class="table" id="myTable">
         <thead>
             <tr>

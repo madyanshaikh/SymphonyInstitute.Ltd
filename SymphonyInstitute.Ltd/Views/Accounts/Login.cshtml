@@ -2,35 +2,90 @@
 
 @{
     ViewData["Title"] = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutLinks.cshtml";
+
 }
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <div class="logo">
+                        <img src="~/lib/Logo/svg/Color logo - no background.svg" alt="Alternate Text" height="80" width="150" />
+                    </div>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li><a href="meetings.html">Meetings</a></li>
+                        <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="meetings.html">Upcoming Meetings</a></li>
+                                <li><a href="meeting-details.html">Meeting Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#courses">Courses</a></li>
 
-<h1>Login</h1>
+                        <li class=""><a asp-controller="Accounts" asp-action="Login">Login</a></li>
 
-<h4>Login</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+                        <li class=""><a asp-controller="Accounts" asp-action="StudentSignup">SignUp</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container-fluid p-5  mt-60" style="width:100vw;">
+
+    <div class="wrap-login100 m-auto">
+        <form asp-action="Login" method="post" class="login100-form validate-form">
+            <span class="login100-form-title p-b-26">
+                Welcome
+            </span>
+            <span class="login100-form-title p-b-48">
+                <i class="zmdi zmdi-font"></i>
+            </span>
+
+            <div class="wrap-input100 validate-input">
                 <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+                <input class="input100" asp-for="UserName" type="email">
             </div>
-            <div class="form-group">
+
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <input class="input100" type="password" asp-for="Password">
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" types="submit">
+                        Login
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center p-t-115">
+                <span class="txt1">
+                    Don’t have an account?
+                </span>
+
+                <a class="txt2" href="#">
+                    Sign Up
+                </a>
             </div>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 

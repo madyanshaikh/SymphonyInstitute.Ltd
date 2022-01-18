@@ -215,6 +215,7 @@ namespace SymphonyInstitute.Ltd.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> UserRole(UserRoles userRole)
         {

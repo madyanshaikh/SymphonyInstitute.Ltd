@@ -1,13 +1,18 @@
 ﻿@model SymphonyInstitute.Ltd.Models.Student
 
+@{ 
+    Layout = "~/Views/Shared/_LayoutLinks.cshtml";
+}
 
 
+<div class="container-xxl text-center" style="height:100vh;">
+    <div class="container">
+    <h1 class="text-success p-3">
 
-<div class="container text-center">
-    <h3 class="text-success">
         @ViewBag.ErrorTitle
+    </h1>
+    <h3 class="text-danger p-3">  @ViewBag.ErrorMessage</h3>
+    </div>         
 
-    </h3>
-    <h6 class="text-danger">  @ViewBag.ErrorMessage</h6>
 
 </div>

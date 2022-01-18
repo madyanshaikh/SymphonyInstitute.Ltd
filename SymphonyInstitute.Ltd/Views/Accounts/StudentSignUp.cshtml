@@ -2,156 +2,197 @@
 
 @{
     ViewData["Title"] = "StudentSignUp";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutLinks.cshtml";
 }
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <div class="logo">
+                        <img src="~/lib/Logo/svg/Color logo - no background.svg" alt="Alternate Text" height="80" width="150" />
+                    </div>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li><a href="meetings.html">Meetings</a></li>
+                        <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="meetings.html">Upcoming Meetings</a></li>
+                                <li><a href="meeting-details.html">Meeting Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#courses">Courses</a></li>
 
-<div class="row text-center">
-    <h2 class="text-info">SignUp</h2>
+                        <li class=""><a asp-controller="Accounts" asp-action="Login">Login</a></li>
+
+                        <li class=""><a asp-controller="Accounts" asp-action="StudentSignup">SignUp</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid img p-5 m-0" style="width:100Vw">
+
+    <div class="row text-center">
+        <i class="ti-user me-15 text-white mt-50" style="font-size:100px;"></i>
+    </div>
+
+    <form class="container p-5" asp-action="StudentSignUp" method="post">
+        <div class="row text-white">
+            <h4 class="box-title text-danger mb-0"><i class="ti-user me-15 text-white"></i> Personal Info</h4>
+            <hr class="my-15">
+            <div class="col-md-6">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input asp-for="Fname" class="form-control" />
+                    <span asp-validation-for="Fname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input asp-for="Lname" class="form-control" />
+                    <span asp-validation-for="Lname" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Contact</label>
+                    <input asp-for="MobileNumber" class="form-control" />
+                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <h4 class="box-title text-danger mb-0 mt-20"><i class="ti-comment-alt me-15 text-white"></i> Basic Info</h4>
+            <hr class="my-15">
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Guardian Number</label>
+                    <input asp-for="GuradianNumber" class="form-control" />
+                    <span asp-validation-for="GuradianNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" asp-for="Religion"></label>
+                    <select class="form-control form-select" asp-for="religion" style="width:150px">
+                        <option>....</option>
+                        <option value=101101>Islam</option>
+                        <option value=101102>Christian</option>
+                        <option value=101103>Jewish</option>
+                        <option value=101104>Hindu</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" asp-for="Qualifications"></label>
+                    <select class="form-control form-select" asp-for="Qualifications" style="width:150px">
+                        <option>....</option>
+                        <option value=101001>Matricualtion</option>
+                        <option value=101002>Intermediate</option>
+                        <option value=101003>Garduate</option>
+                        <option value=101004>Masters</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" asp-for="Gender"></label>
+                    <select class="form-control form-select" asp-for="Gender">
+                        <option>....</option>
+                        <option value="true">Male</option>
+                        <option value="false">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="Nic" class="control-label"></label>
+                    <input asp-for="Nic" class="form-control" />
+                    <span asp-validation-for="Nic" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Date Of Birth</label>
+                    <input type="date" asp-for="Dob" class="form-control" />
+                    <span asp-validation-for="Dob" class="text-danger"></span>
+                </div>
+            </div>
+
+            <h4 class="box-title text-danger mb-0 mt-20"><i class="ti-save me-15 text-white"></i> Requirements</h4>
+            <hr class="my-15">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md">
+                <button type="submit" class="btn form-control btn-outline-danger mt-30 font-weight-bold">Submit</button>
+            </div>
+
+
+
+
+        </div>
+
+    </form>
+
+
 </div>
-
-<div class="row">
-    <h4 class="box-title text-info mb-0"><i class="ti-user me-15"></i> Personal Info</h4>
-    <hr class="my-15">
-    <div class="col-md-6">
-
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label class="control-label">first Name</label>
-            <input asp-for="Fname" class="form-control" />
-            <span asp-validation-for="Fname" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label class="control-label">Last Name</label>
-            <input asp-for="Lname" class="form-control" />
-            <span asp-validation-for="Lname" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label class="control-label">Contact</label>
-            <input asp-for="MobileNumber" class="form-control" />
-            <span asp-validation-for="MobileNumber" class="text-danger"></span>
-        </div>
-    </div>
-
-
-    <h4 class="box-title text-info mb-0 mt-20"><i class="ti-save me-15"></i> Requirements</h4>
-    <hr class="my-15">
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Nic" class="control-label"></label>
-            <input asp-for="Nic" class="form-control" />
-            <span asp-validation-for="Nic" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Address" class="control-label"></label>
-            <input asp-for="Address" class="form-control" />
-            <span asp-validation-for="Address" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label class="control-label">Date Of Birth</label>
-            <input type="date" asp-for="Dob" class="form-control" />
-            <span asp-validation-for="Dob" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Age" class="control-label"></label>
-            <input asp-for="Age" class="form-control" />
-            <span asp-validation-for="Age" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="GuradianNumber" class="control-label"></label>
-            <input asp-for="GuradianNumber" class="form-control" />
-            <span asp-validation-for="GuradianNumber" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Age" class="control-label"></label>
-            <input asp-for="Age" class="form-control" />
-            <span asp-validation-for="Age" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Password" class="control-label"></label>
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="ConfirmPassword" class="control-label"></label>
-            <input asp-for="ConfirmPassword" class="form-control" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            <label class="control-label" asp-for="religion"></label>
-            <select class="form-control form-select" asp-for="religion" style="width:150px">
-                <option>....</option>
-                <option value=101101>Islam</option>
-                <option value=101102>Christian</option>
-                <option value=101103>Jewish</option>
-                <option value=101104>Hindu</option>
-
-            </select>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            <label class="control-label" asp-for="Qualifications"></label>
-            <select class="form-control form-select" asp-for="Qualifications" style="width:150px">
-                <option>....</option>
-                <option value=101001>Matricualtion</option>
-                <option value=101002>Intermediate</option>
-                <option value=101003>Garduate</option>
-                <option value=101004>Masters</option>
-            </select>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="form-group">
-            <label class="control-label" asp-for="Gender"></label>
-            <select class="form-control form-select" asp-for="Gender">
-                <option>....</option>
-                <option value="true">Male</option>
-                <option value="false">Female</option>
-            </select>
-        </div>
-    </div>
-    
-        <div class="form-group col-md pt-15">
-            <input asp-action="StudentSignUp" method="post" type="submit" value="Submit" class="form-control form-select-lg btn-success-light" />
-        </div>
-
-
-   
-
-</div>
-
-
-

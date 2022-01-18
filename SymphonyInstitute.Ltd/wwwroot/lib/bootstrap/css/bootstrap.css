@@ -621,6 +621,25 @@ progress {
   color: #6c757d;
 }
 
+#bg-meeting {
+    background-image: url(../images/meetings-bg.jpg) !important;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 230px;
+    padding-bottom: 110px;
+}
+
+.bg-meeting {
+    background-image: url(../images/meetings-bg.jpg) !important;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 230px;
+    padding-bottom: 110px;
+}
 .container,
 .container-fluid,
 .container-xxl,
@@ -633,6 +652,7 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+  background-color:transparent !important;
 }
 
 @media (min-width: 576px) {

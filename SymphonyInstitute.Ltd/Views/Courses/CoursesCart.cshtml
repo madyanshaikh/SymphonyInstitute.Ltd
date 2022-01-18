@@ -2,117 +2,249 @@
 @model SymphonyInstitute.Ltd.Models.Courses
 @{
     ViewData["Title"] = "CoursesCart";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutLinks.cshtml";
 }
 
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style="height:7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">Javascript</h5>
-                        <input type="hidden" asp-for="Id" value=1102 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
+<div class="container-fluid limiter p-5 m-0" style="width:100vw">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="section-header col-md-12">
+                <h1 class="text-white">Courses</h1>
+                <span>Subtitle Goes Here</span>
+            </div> <!-- /.section-header -->
+        </div> <!-- /.row -->
+        <div class="row">
+            <div class="blog-masonry masonry-true">
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">AspNetCore</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=1001 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
 
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style=" height :7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">AspNetCore</h5>
-                        <input type="hidden" asp-for="Id" value=1001 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
                     </div>
-                </div>
-            </form>
-        </div>
 
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style=" height:7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">Bootstrap</h5>
-                        <input type="hidden" asp-for="Id" value=1205 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
+                </div> <!-- /.post-masonry -->
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-02.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">Html/Css</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=1418 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
 
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style=" height:7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">Python</h5>
-                        <input type="hidden" asp-for="Id" value=1315 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
                     </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
 
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style=" height:7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">Html/Css</h5>
-                        <input type="hidden" asp-for="Id" value=1418 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
+                </div> <!-- /.post-masonry -->
+
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-03.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">C++</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=2005 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
 
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style=" height:7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">React</h5>
-                        <input type="hidden" asp-for="Id" value=1625 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
                     </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-md">
-            <form asp-action="CoursesCart" method="post">
 
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap" style=" height:7em" ;>
-                    <div class="card-body">
-                        <h5 class="card-title text-success">Angular</h5>
-                        <input type="hidden" asp-for="Id" value=17058 />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <input type="submit" class="btn btn-primary" value="Get Enroll">
+                </div> <!-- /.post-masonry -->
+
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">Bootstrap</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=1205 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
 
-    </div>
+                    </div>
 
-</div>
+                </div> <!-- /.post-masonry -->
+
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">Python</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=1315 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div> <!-- /.post-masonry -->
+
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">ReactJs</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=1625 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div> <!-- /.post-masonry -->
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">C#</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=2505 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div> <!-- /.post-masonry -->
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">Angular 12 </a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=17058 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div> <!-- /.post-masonry -->
+                <div class="post-masonry col-md-4 col-sm-6">
+                    <div class="blog-thumb">
+                        <img src="~/lib/assets/images/course-01.jpg" alt="">
+                        <div class="overlay-b">
+                            <div class="overlay-inner">
+                                <a href="blog-single.html" class="fa fa-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-body">
+                        <div class="box-content">
+                            <form asp-action="CoursesCart">
+                                <h3 class="post-title"><a href="blog-single.html">JavaScript</a></h3>
+                                <span class="blog-meta">10 November 2084 by Tawana</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                                <input type="hidden" asp-for="Id" value=1102 />
+                                <input type="submit" class="btn btn-danger" value="Get Enroll">
+                            </form>
+                        </divs
+                            
+                    </div>
+
+                </div> <!-- /.post-masonry -->
+
+            </div> <!-- /.blog-masonry -->
+        </div> <!-- /.row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pagination text-center">
+                    <ul>
+                        <li><a href="javascript:void(0)">1</a></li>
+                        <li><a href="javascript:void(0)" class="active">2</a></li>
+                        <li><a href="javascript:void(0)">3</a></li>
+                        <li><a href="javascript:void(0)">4</a></li>
+                        <li><a href="javascript:void(0)">...</a></li>
+                        <li><a href="javascript:void(0)">11</a></li>
+                    </ul>
+                </div> <!-- /.pagination -->
+            </div> <!-- /.col-md-12 -->
+        </div> <!-- /.row -->
+    </div> <!-- /.inner-content -->
+</div> <!-- /.content-wrapper -->
 
 
+    

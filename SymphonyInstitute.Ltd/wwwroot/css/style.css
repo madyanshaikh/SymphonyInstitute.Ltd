@@ -121,8 +121,18 @@ body {
   font-family: "IBM Plex Sans", sans-serif;
   line-height: 1.5;
   background-color: #ffffff; }
+#issue {
+    margin: 0 !important;
+    /*padding: 0 !important;*/
+}
 
-/*---basic---*/
+.img {
+    background-image: url(../images/meetings-bg.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}/*---basic---*/
 a {
   color: #2f579a; }
 
